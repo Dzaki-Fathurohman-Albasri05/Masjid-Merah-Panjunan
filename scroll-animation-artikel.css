@@ -1,0 +1,215 @@
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .container > .slider-wrapper,
+    .container > p,
+    .container > h2,
+    .container > h3,
+    .container > ul,
+    .container > .highlight-box,
+    .container > .table-container,
+    .container > .nav-card-container {
+      will-change: transform, opacity, filter;
+    }
+
+    .container > .slider-wrapper {
+      opacity: 0;
+      transform: translateY(90px) scale(0.95);
+      animation: mediaFloatReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 34%;
+    }
+
+    .container > p:nth-of-type(odd) {
+      opacity: 0;
+      transform: translateX(-70px);
+      animation: driftLeftReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 36%;
+    }
+
+    .container > p:nth-of-type(even) {
+      opacity: 0;
+      transform: translateX(70px);
+      animation: driftRightReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 36%;
+    }
+
+    .container > h2 {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(60px);
+      animation: headingReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 28%;
+    }
+
+    .container > h3 {
+      opacity: 0;
+      transform: translateY(45px) scale(0.96);
+      animation: lineFocusReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 30%;
+    }
+
+    .container > ul {
+      opacity: 0;
+      transform: translateY(70px);
+      animation: listRiseReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 38%;
+    }
+
+    .container > .highlight-box {
+      opacity: 0;
+      filter: blur(8px);
+      transform: scale(0.92);
+      animation: centerBloomReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 34%;
+    }
+
+    .container > .table-container {
+      opacity: 0;
+      transform: translateY(80px) rotateX(10deg);
+      transform-origin: top center;
+      animation: tableReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 36%;
+    }
+
+    .container > .nav-card-container {
+      opacity: 0;
+      transform: translateY(70px) scale(0.96);
+      animation: buttonTrayReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 12% cover 42%;
+    }
+  }
+}
+
+@supports (animation-timeline: scroll(root)) {
+  .icon-floot {
+    animation: munculPasScroll linear both;
+    animation-timeline: scroll(root);
+    animation-range: entry 0px exit 800px;
+  }
+}
+
+@keyframes driftLeftReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-70px) rotate(-4deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes driftRightReveal {
+  from {
+    opacity: 0;
+    transform: translateX(70px) rotate(4deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes mediaFloatReveal {
+  from {
+    opacity: 0;
+    transform: translateY(90px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes headingReveal {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes lineFocusReveal {
+  from {
+    opacity: 0;
+    letter-spacing: 0.08em;
+    transform: translateY(45px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    letter-spacing: 0;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes listRiseReveal {
+  from {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes centerBloomReveal {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes tableReveal {
+  from {
+    opacity: 0;
+    transform: translateY(80px) rotateX(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+@keyframes buttonTrayReveal {
+  from {
+    opacity: 0;
+    transform: translateY(70px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes munculPasScroll {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
